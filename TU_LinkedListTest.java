@@ -135,4 +135,22 @@ class TU_LinkedListTest {
                 myLinkedList.tail.equals(myThirdNode);
         Assertions.assertTrue(result);
     }
+    //delete at index
+    @Test
+    void whenKeyIsGivenNodeAtKeyShouldBePop() {
+
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode<Integer> myFourthNode = new MyNode<>(40);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addNode(myFirstNode);
+        myLinkedList.addNode(mySecondNode);
+        myLinkedList.addNode(myThirdNode);
+        myLinkedList.addNode(myFourthNode);
+        INode deletedNode = myLinkedList.deleteAt(30);
+        boolean result = myLinkedList.head.getNext().equals(myThirdNode) &&
+                deletedNode.equals(mySecondNode);
+        Assertions.assertTrue(result);
+    }
 }
