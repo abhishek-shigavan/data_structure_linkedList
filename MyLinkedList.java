@@ -262,4 +262,51 @@ public class MyLinkedList <E> {
         //returning deleted node
         return keyNode;
     }
+/**
+ * This method add key into Linked list
+ * in sorted ( ascending order) order.
+ *
+ * @param newNode
+ * @return No return
+ */
+    public void insertSorted(INode<E> newNode){
+        //taking current node to iterate through all nodes
+        INode<E> currentNode;
+
+        if(this.head == null ){
+            //making 1st node as head
+            this.head = newNode;
+        }
+        //if new key is less than head key then making new node as head
+        else if(this.head.getKey().compareTo(newNode.getKey()) > 0){
+            //setting old head as next to new head
+            newNode.setNext(this.head);
+            //making new node as head
+            this.head = newNode;
+        }
+        else{
+            //storing head into current node
+            currentNode = this.head;
+            //loop will find node previous to max node
+            while(currentNode.getNext() != null && currentNode.getNext().getKey().compareTo(newNode.getKey()) <= 0){
+
+                    currentNode = currentNode.getNext();
+            }
+
+            //making new node as tail as it is max among all nodes
+            if(currentNode.getNext() == null) {
+
+                currentNode.setNext(newNode);
+                this.tail = newNode;
+            }
+            else {
+                //getting node with max key
+                INode<E> maxNode = currentNode.getNext();
+                //setting new node as next node of previous node of max
+                currentNode.setNext(newNode);
+                //setting max node as next node of new node
+                newNode.setNext(maxNode);
+            }
+        }
+    }
 }
