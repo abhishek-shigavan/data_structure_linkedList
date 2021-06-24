@@ -102,4 +102,19 @@ class TU_LinkedListTest {
                 myLinkedList.tail.equals(mySecondNode) && popNode.equals(myThirdNode);
         Assertions.assertTrue(result);
     }
+    //finding key
+    @Test
+    void whenKeyIsGivenShouldReturnNode() {
+
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addNode(myFirstNode);
+        myLinkedList.addNode(mySecondNode);
+        myLinkedList.addNode(myThirdNode);
+        INode keyNode = myLinkedList.findNode(30);
+        boolean result = keyNode.equals(mySecondNode);
+        Assertions.assertTrue(result);
+    }
 }
