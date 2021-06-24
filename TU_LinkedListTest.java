@@ -22,4 +22,20 @@ class TU_LinkedListTest {
                 myLinkedList.tail.equals(myThirdNode);
         Assertions.assertTrue(result);
     }
+    //for add node at front
+    @Test
+    void when3NumbersAddedToLinkedListLastNoShouldBeAddedFront() {
+
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addNodeAtFront(myFirstNode);
+        myLinkedList.addNodeAtFront(mySecondNode);
+        myLinkedList.addNodeAtFront(myThirdNode);
+        boolean result = myLinkedList.head.equals(myThirdNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode) &&
+                myLinkedList.tail.equals(myFirstNode);
+        Assertions.assertTrue(result);
+    }
 }
