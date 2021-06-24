@@ -70,4 +70,20 @@ class TU_LinkedListTest {
                 myLinkedList.tail.equals(mySecondNode);
         Assertions.assertTrue(result);
     }
+    //for pop at first
+    @Test
+    void whenPopHeadNextNodeShouldBeHead() {
+
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(70);
+        MyNode<Integer> myThirdNode = new MyNode<>(30);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addNode(myFirstNode);
+        myLinkedList.addNode(mySecondNode);
+        myLinkedList.addNode(myThirdNode);
+        INode popNode = myLinkedList.popAtFirst();
+        boolean result = myLinkedList.head.equals(mySecondNode) &&
+                myLinkedList.tail.equals(myThirdNode) && popNode.equals(myFirstNode);
+        Assertions.assertTrue(result);
+    }
 }
