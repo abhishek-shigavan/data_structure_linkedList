@@ -131,4 +131,23 @@ public class MyLinkedList <E> {
             newNode.setNext(tempNode);
         }
     }
+/**
+ * In this method storing head node
+ * into temp node &
+ * Assigning node next to head as
+ * new head node
+ *
+ * @return Pop Node
+ */
+    public INode<E> popAtFirst(){
+       
+	//storing head node into temp node
+        INode<E> tempNode = this.head;
+        
+	//setting node next ot head as new head
+        this.head = this.head.getNext();
+        
+	//returning old head
+        return tempNode;
+    }
 }
