@@ -183,4 +183,31 @@ public class MyLinkedList <E> {
         //returning old tail
         return tempNode;
     }
+/**
+ * This method matches key of each
+ * node with given key &
+ * when key matches returns node of that key
+ *
+ * @param key
+ * @return Node of given key
+ */
+    public INode<E> findNode(E key){
+        //storing head into tempNode
+        INode tempNode = this.head;
+
+        boolean flag = true;
+        //matching each node key with given key
+        while (flag) {
+            if (tempNode.getKey().equals(key)) {
+
+                flag = false;
+                //returning node
+                return tempNode;
+            } else {
+                //storing next node into tempNode for further iteration
+                tempNode = tempNode.getNext();
+            }
+        }
+        return null;
+    }
 }
