@@ -150,4 +150,37 @@ public class MyLinkedList <E> {
 	//returning old head
         return tempNode;
     }
+/**
+ * In this method head will be storing
+ * into tempNode &
+ * iterate through loop till tail is reached
+ * tempNode will get replaced with next node
+ * when goes through loop
+ * At last tempNode having value of node previous
+ * to tails
+ * making tempNode as tail & returning node next to it
+ *
+ * @return old tail
+ */
+    public INode<E> popAtLast(){
+
+        //setting tempNode as head
+        INode tempNode = this.head;
+
+        //loop will break as it reaches tail
+        while (!tempNode.getNext().equals(tail))
+        {
+            //replacing temp node with next node
+            tempNode = tempNode.getNext();
+        }
+
+        //setting previous node of tail as new tail
+        this.tail = tempNode;
+
+        //storing old tail into tempNode
+        tempNode = tempNode.getNext();
+
+        //returning old tail
+        return tempNode;
+    }
 }
