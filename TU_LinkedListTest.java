@@ -54,4 +54,20 @@ class TU_LinkedListTest {
                 myLinkedList.tail.equals(myThirdNode);
         Assertions.assertTrue(result);
     }
+    //for add node in betweem
+    @Test
+    void when3NumbersAddedToLinkedListLastNoShouldBeInBetween() {
+
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(70);
+        MyNode<Integer> myThirdNode = new MyNode<>(30);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addNodeBetween(myFirstNode);
+        myLinkedList.addNodeBetween(mySecondNode);
+        myLinkedList.addNodeBetween(myThirdNode);
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.head.getNext().equals(myThirdNode) &&
+                myLinkedList.tail.equals(mySecondNode);
+        Assertions.assertTrue(result);
+    }
 }
