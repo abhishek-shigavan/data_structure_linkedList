@@ -153,4 +153,23 @@ class TU_LinkedListTest {
                 deletedNode.equals(mySecondNode);
         Assertions.assertTrue(result);
     }
+    //for sorted insertion
+    @Test
+    void whenDataAddedItShouldBeInAscendingOrder() {
+
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode<Integer> myFourthNode = new MyNode<>(40);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.insertSorted(myFirstNode);
+        myLinkedList.insertSorted(mySecondNode);
+        myLinkedList.insertSorted(myThirdNode);
+        myLinkedList.insertSorted(myFourthNode);
+
+        boolean result = myLinkedList.head.equals(mySecondNode) && myLinkedList.head.getNext().equals(myFourthNode)
+                && myLinkedList.tail.equals(myThirdNode);
+
+        Assertions.assertTrue(result);
+    }
 }
