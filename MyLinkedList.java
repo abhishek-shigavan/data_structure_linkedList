@@ -103,4 +103,32 @@ public class MyLinkedList <E> {
             this.tail = newNode;
         }
     }
+/**
+ * In this method first setting head &
+ * tail if they are null
+ * Then replacing node next to head with
+ * new node & making old one next to new one
+ *
+ * @param newNode
+ * @return No return
+ */
+    public void addNodeBetween(INode<E> newNode){
+
+        if(this.head == null){
+            //setting new node as head
+            this.head = newNode;
+        }
+        else if(this.tail == null){
+            //setting new node as tail
+            this.tail = newNode;
+        }
+        else{
+            //storing node next to head into temp
+            INode<E> tempNode =this.head.getNext();
+            //setting new node as next to start
+            this.head.setNext(newNode);
+            //setting temp node as next to new node
+            newNode.setNext(tempNode);
+        }
+    }
 }
