@@ -231,4 +231,35 @@ public class MyLinkedList <E> {
         //setting old next of given node as a next to new node
         newNode.setNext(tempNode);
     }
+ /**
+  * This method deletes node of given
+  * key
+  * Method will find previous & next node of key node
+  * & set next node as next to previous node
+  *
+  * @param key
+  * @return No return
+  */
+    public INode<E> deleteAt(E key){
+
+        //getting node of given key
+        INode<E> keyNode = findNode(key);
+
+        //setting tempNode as head
+        INode tempNode = this.head;
+
+        //getting front node of key node
+        while (!tempNode.getNext().equals(keyNode))
+        {
+            //replacing temp node with next node
+            tempNode = tempNode.getNext();
+        }
+
+        INode<E> previousToKey= tempNode;
+        INode<E> nextToKey = keyNode.getNext();
+
+        previousToKey.setNext(nextToKey);
+        //returning deleted node
+        return keyNode;
+    }
 }
