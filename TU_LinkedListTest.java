@@ -117,4 +117,22 @@ class TU_LinkedListTest {
         boolean result = keyNode.equals(mySecondNode);
         Assertions.assertTrue(result);
     }
+    //insert at index
+    @Test
+    void whenKeyAndNewKeyIsGivenNewKeyShouldBeNextNodeOfGivenKey() {
+
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode<Integer> myFourthNode = new MyNode<>(40);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addNode(myFirstNode);
+        myLinkedList.addNode(mySecondNode);
+        myLinkedList.addNode(myThirdNode);
+        myLinkedList.insertAt(30,myFourthNode);
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                mySecondNode.getNext().equals(myFourthNode) &&
+                myLinkedList.tail.equals(myThirdNode);
+        Assertions.assertTrue(result);
+    }
 }
