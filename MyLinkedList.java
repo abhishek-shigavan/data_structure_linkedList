@@ -210,4 +210,25 @@ public class MyLinkedList <E> {
         }
         return null;
     }
+ /**
+  * This method insert new node next
+  * to node of given key
+  *
+  * @param key
+  * @param newNode
+  */
+    public void insertAt(E key, INode<E> newNode){
+
+        //getting node of given key
+        INode<E> keyNode = findNode(key);
+
+        //storing node next to node of key into tempNode
+        INode<E> tempNode = keyNode.getNext();
+
+        //setting new node as next node to given node
+        keyNode.setNext(newNode);
+
+        //setting old next of given node as a next to new node
+        newNode.setNext(tempNode);
+    }
 }
