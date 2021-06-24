@@ -75,4 +75,32 @@ public class MyLinkedList <E> {
             this.head.setNext(tempNode);
         }
     }
+/**
+ * In this method --
+ * If new node is first node of LinkedList
+ * then it will make it head & tail both
+ * Else new node will be added to next to
+ * tail (i.e it will be the next tail)
+ *
+ * @param newNode
+ *
+ * @return No return
+ */
+    public void addNodeAtTail(INode<E> newNode){
+
+        if(this.head == null){
+            //making new node as head
+            this.head = newNode;
+        }
+        if(this.tail == null){
+            //making new node as tail
+            this.tail = newNode;
+        }
+        else {
+            //setting new node as next to tail
+            this.tail.setNext(newNode);
+            //setting new node as new tail
+            this.tail = newNode;
+        }
+    }
 }
